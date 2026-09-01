@@ -1,0 +1,31 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.card__stars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+
+    .stars__wrap {
+      display: flex;
+
+      @for $starIndex from 1 through $star {
+        .stars__star--#{$starIndex} {
+          background-image: url(../images/star-active.svg);
+        }
+      }
+    }
+    .stars__star {
+      background: url(../images/star.svg) no-repeat center;
+      width: $star-width;
+      height: $star-height;
+      margin-right: 4px;
+    }
+
+    p:first-of-type {
+      @include text(400, 10px, 14px, 0%, $main-accent);
+    }
+
+    margin-bottom: 24px;
+  }
